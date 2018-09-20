@@ -1,0 +1,112 @@
+{
+  "message": {
+    "hello": "Ciao mondo",
+    "editProfile": "Modifica Profilo",
+    "car": "macchina | macchine",
+    "item": "nessun elemento | un elemento | {count} elementi",
+    "addItem": "Aggiungi elemento"
+  },
+  "timeline":{
+    "actions":{
+      "readMore": "Leggi tutto",
+      "delete": "Cancella"
+    }
+  },
+  "confRooms": {
+    "room": "camera| camere",
+    "adult": "adulto | adulti",
+    "child": "bambino | bambini",
+    "addRoom": "Aggiungi caremra",
+    "remove": "rimuovi",
+    "over18": "Maggiori di 18 anni",
+    "under18": "Sotto i 18 anni",
+    "ageOfChildern": "Età dei bambini"
+  },
+  "pages": {
+    "products": {
+      "hotel": {
+        "add": {
+          "title": "Aggiungi hotel"
+        }
+      },
+      "add": {
+        "excursions": {
+          "title": "Aggiungi escursioni"
+        }
+      }
+    }
+  },
+  "form": {
+    "product": {
+      "hotel": {
+        "hotelName": {
+          "label": "Nome Hotel",
+          "placeholder": "Inserisci un nome"
+        }
+      }
+    },
+    "juniperId": {
+      "label": "ID Juniper",
+      "placeholder": "Inserisci un id"
+    },
+    "serviceName": {
+      "label": "Nome Servizio",
+      "placeholder": "Inserisci name"
+    },
+    "serviceNameAlidays": {
+      "label": "Nome Servizio Alidays",
+      "placeholder": "Inserisci name"
+    },
+    "location": {
+      "label": "Località",
+      "placeholder": "Inserisci un indirizzo"
+    },
+    "longDesscription": {
+      "label": "Descrizione lunga",
+      "placeholder": "Inserisci una descrizione lunga"
+    },
+    "shortDesscription": {
+      "label": "Descrizione breve",
+      "placeholder": "Inserisci una descrizione breve"
+    },
+    "type": {
+      "label": "Tipologia",
+      "default": "Seleziona Tipologia",
+      "shared": "Condivisa",
+      "private": "Privata"
+    },
+    "maxPax": {
+      "label": "Numero max pax"
+    },
+    "lang": {
+      "label": "Lingua",
+      "default": "Seleziona Lingua",
+      "italian": "Italiana",
+      "english": "Inglese"
+    },
+    "includedTags": {
+      "placeholder": "Iniziare a scrivere...",
+      "label": "Inclusioni",
+      "error": ""
+    },
+    "excludedTags": {
+      "placeholder": "Iniziare a scrivere...",
+      "label": "Esclusioni",
+      "error": ""
+    },
+    "rangeSlider": {
+      "label": "Range di età"
+    },
+    "audio": {
+      "label": "Nota Audio",
+      "action": "Registra",
+      "confirm": "Inserisci un nome"
+    },
+    "error": {
+      "toShort": "Nome troppo corto"
+    }
+  },
+  "order": {
+    "room": "camera| camere"
+  }
+}

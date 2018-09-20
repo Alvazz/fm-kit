@@ -1,0 +1,106 @@
+{
+  "message": {
+    "hello": "hello world",
+    "editProfile": "Edit Profile",
+    "car": "car | cars",
+    "item": "no item | one item | {count} items",
+    "addItem": "Add Item"
+  },
+  "timeline":{
+    "actions":{
+      "readMore": "Read More",
+      "delete": "Delete"
+    }
+  },
+  "confRooms": {
+    "room": "room| rooms",
+    "adult": "adult | adults",
+    "child": "child | children",
+    "addRoom": "Add room",
+    "remove": "remove",
+    "over18": "18+ years",
+    "under18": "Under 18 years",
+    "ageOfChildern": "Age of children"
+  },
+  "pages": {
+    "products": {
+      "hotel": {
+        "add": {
+          "title": "Add Hotel"
+        }
+      },
+      "add": {
+        "excursions": {
+          "title": "Add Excursions"
+        }
+      }
+    }
+  },
+  "form": {
+    "product": {
+      "hotel": {
+        "hotelName": {
+          "label": "Hotel name",
+          "placeholder": "Add hotel name"
+        }
+      }
+    },
+    "juniperId": {
+      "label": "Juniper ID",
+      "placeholder": "add id"
+    },
+    "serviceName": "Service Name",
+    "serviceNameAlidays": "Service Name Alidays",
+    "location": {
+      "label": "Location",
+      "placeholder": "Inserisci un indirizzo"
+    },
+    "type": {
+      "label": "Type",
+      "default": "Select a type",
+      "shared": "Shared",
+      "private": "Private"
+    },
+    "lang": {
+      "label": "Lingua",
+      "default": "Seleziona Lingua",
+      "italian": "Italiana",
+      "english": "Inglese"
+    },
+    "maxPax": {
+      "label": "Number max pax"
+    },
+    "longDesscription": {
+      "label": "Long Description",
+      "placeholder": "Inserisci una descrizione lunga"
+    },
+    "shortDesscription": {
+      "label": "Short Description",
+      "placeholder": "Inserisci una descrizione breve"
+    },
+    "includedTags": {
+      "placeholder": "Iniziare a scrivere...",
+      "label": "Inclusi",
+      "error": ""
+    },
+    "excludedTags": {
+      "placeholder": "Iniziare a scrivere...",
+      "label": "Esclusi",
+      "error": ""
+    },
+    "rangeSlider": {
+      "label": "Age Range"
+    },
+    "audio": {
+      "label": "Audio Note",
+      "action": "Recording",
+      "confirm": "Add name"
+    },
+    "error": {
+      "toShort": "This name is too short"
+    }
+  },
+  "order": {
+    "room": "room| rooms"
+  }
+}

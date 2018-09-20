@@ -1,0 +1,45 @@
+DESTINAZIONI
+———
+
+Titolo (text)
+Descrizione (textArea)
+Quando Andare (textArea)
+Info Utili (textArea)
+cover (img)
+
+———
+	—> hotel (filter by hotelID)
+	—> Itinerari (filter by destinationID)
+———
+
+HOTELS
+———
+
+Nome (text)
+Descrizione (textArea)
+gallery (img)
+Geo (text autocomplate)
+Select Multi Itinerari (select)
+Tag destinazioni (taginput)
+
+———
+	—> Itinerari (filter by destinationID)
+	—> CTA destinazione
+———
+
+ITINERARI
+———
+
+Titolo (text)
+Descrizione (textArea)
+Steps
+  title (text)
+  Descrizione (textArea)
+  Geo (text autocomplate)
+  Media
+  ...
+Tag destinazioni (taginput)
+
+———
+	—> CTA destinazione
+———
