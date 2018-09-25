@@ -54,10 +54,17 @@ export default {
 a {
   color: #FFC200;
 }
-a:hover {
+nav a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+a:hover, .dropdown-menu a:hover {
   color: rgba(	0, 0, 34 , 0.7);
   text-decoration: none;
 }
+
+
 p {
   font-family: 'Cormorant Garamond', serif;
 }

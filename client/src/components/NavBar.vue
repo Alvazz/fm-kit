@@ -24,7 +24,7 @@
             <b-form-input size="sm" class="mr-sm-2" type="text" placeholder="Search"/>
             <b-button class="search-submit" type="submit"><i class="fas fa-search fa-lg"></i></b-button>
           </b-nav-form>
-          <b-nav-item-dropdown right v-if="isLogged">
+          <b-nav-item-dropdown right v-if="$profile.isAllowed('isAdmin')" >
             <template slot="button-content">
               <em>Admin</em>
             </template>
@@ -41,7 +41,7 @@
           </b-nav-item-dropdown>
           <b-nav-item v-else>
             <router-link to="/login">
-              Admin
+              Login
             </router-link>
           </b-nav-item>
         </b-navbar-nav>

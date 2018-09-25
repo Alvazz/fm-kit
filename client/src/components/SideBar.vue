@@ -1,7 +1,7 @@
 <template>
   <div class="row mt-5 mb-5 sidebar">
     <div class="col-lg-12 col-md-12 col-sm-12">
-      <div>
+      <div v-show="$profile.isAllowed('isAdmin')">
         <p class="menu-label">
           Admin
         </p>
