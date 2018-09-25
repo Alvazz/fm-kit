@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer fixed-bottom pt-3 pb-2">
+  <footer class="footer fixed-bottom pt-3 pb-2" v-show="false">
     <div class="container-fluid">
       <div class="row">
         <div class="col-3">

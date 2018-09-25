@@ -4,7 +4,7 @@
 
       <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
 
-      <b-navbar-brand>
+      <b-navbar-brand v-show="false">
         <router-link to="/" >
           <img src="@/assets/logo.png" width="auto" height="30" class="d-inline-block align-top" alt="">
         </router-link>
@@ -17,19 +17,10 @@
             <router-link class="nav-link" to="/" >Home <span class="sr-only">(current)</span></router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/destinazioni" >Destinazioni</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link class="nav-link" to="/hotels" >Hotel</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link class="nav-link" to="/itinerari" >Itinerari</router-link>
-          </li>
-          <li class="nav-item">
             <router-link class="nav-link" to="/contatti" >Contatti</router-link>
           </li>
 
-          <b-nav-form>
+          <b-nav-form v-show="false">
             <b-form-input size="sm" class="mr-sm-2" type="text" placeholder="Search"/>
             <b-button class="search-submit" type="submit"><i class="fas fa-search fa-lg"></i></b-button>
           </b-nav-form>

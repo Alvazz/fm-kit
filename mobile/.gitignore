@@ -38,7 +38,7 @@ jspm_packages
 
 .DS_Store
 node_modules/
-#dist/
+dist/
 npm-debug.log
-#www/
+www/
 src/fonts
