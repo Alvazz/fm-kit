@@ -14,20 +14,11 @@ import Test from '@/pages/Test'
 
 import Admin from '@/pages/Admin/Dashboard'
 
-import AdminHotelAdd from '@/pages/Admin/Hotels/Add'
-import AdminHotelsList from '@/pages/Admin/Hotels/List'
-import AdminHotelSingle from '@/pages/Admin/Hotels/Single'
-
-import AdminItineraryAdd from '@/pages/Admin/Itineraries/Add'
-import AdminItinerariesList from '@/pages/Admin/Itineraries/List'
-import AdminItinerarySingle from '@/pages/Admin/Itineraries/Single'
-
-import AdminDestinationAdd from '@/pages/Admin/Destinations/Add'
-import AdminDestinationsList from '@/pages/Admin/Destinations/List'
-import AdminDestinationSingle from '@/pages/Admin/Destinations/Single'
+import AdminFlashAdd from '@/pages/Admin/Flashes/Add'
+import AdminFlashesList from '@/pages/Admin/Flashes/List'
+import AdminFlashSingle from '@/pages/Admin/Flashes/Single'
 
 import AdminMediaList from '@/pages/Admin/Media/List'
-
 
 import Post from '@/pages/Post'
 
@@ -44,14 +35,8 @@ import CreateItem from '@/pages/Items/CreateItem'
 import Item from '@/pages/Items/Item'
 import ItemList from '@/pages/Items/ItemList'
 
-import DestinationsList from '@/pages/Destinations/List'
-import DestinationSingle from '@/pages/Destinations/Single'
-
-import HotelsList from '@/pages/Hotels/List'
-import HotelSingle from '@/pages/Hotels/Single'
-
-import ItinerariesList from '@/pages/Itineraries/List'
-import ItinerarySingle from '@/pages/Itineraries/Single'
+import FlashesList from '@/pages/Flashes/List'
+import FlashSingle from '@/pages/Flashes/Single'
 
 import Contacts from '@/pages/Contacts'
 
@@ -72,52 +57,20 @@ const router = new Router({
       component: Home
     },
     {
-      path: '/destinazioni',
-      name: 'destinazioni',
+      path: '/flashes',
+      name: 'flashes',
       meta: {
         layout: 'full',
       },
-      component: DestinationsList
+      component: FlashesList
     },
     {
-      path: '/destinazioni/:slug',
-      name: 'destinationSingle',
+      path: '/flashes/:slug',
+      name: 'flashSingle',
       meta: {
         layout: 'full'
       },
-      component: DestinationSingle
-    },
-    {
-      path: '/hotels',
-      name: 'hotels',
-      meta: {
-        layout: 'full',
-      },
-      component: HotelsList
-    },
-    {
-      path: '/hotels/:slug',
-      name: 'hotelSingle',
-      meta: {
-        layout: 'full'
-      },
-      component: HotelSingle
-    },
-    {
-      path: '/itinerari',
-      name: 'itineraries',
-      meta: {
-        layout: 'full',
-      },
-      component: ItinerariesList
-    },
-    {
-      path: '/itinerari/:slug',
-      name: 'itinerarySingle',
-      meta: {
-        layout: 'full'
-      },
-      component: ItinerarySingle
+      component: FlashSingle
     },
     {
       path: '/test',
@@ -138,94 +91,34 @@ const router = new Router({
       component: Dashboard
     },
     {
-      path: '/admin/hotels',
-      name: 'adminHotelsList',
+      path: '/admin/flashes',
+      name: 'adminFlashesList',
       meta: {
         layout: 'default',
         perimeter: profilePerimeter,
         perimeterAction: 'isAdmin'
       },
-      component: AdminHotelsList
+      component: AdminFlashesList
     },
     {
-      path: '/admin/hotels/:slug',
-      name: 'adminHotels',
+      path: '/admin/flashes/:slug',
+      name: 'adminFlash',
       meta: {
         layout: 'default',
         perimeter: profilePerimeter,
         perimeterAction: 'isAdmin'
       },
-      component: AdminHotelSingle
+      component: AdminFlashSingle
     },
     {
-      path: '/admin/hotels/add',
-      name: 'adminHotelAdd',
+      path: '/admin/flashes/add',
+      name: 'adminFlashAdd',
       meta: {
         layout: 'default',
         perimeter: profilePerimeter,
         perimeterAction: 'isAdmin'
       },
-      component: AdminHotelAdd
-    },
-    {
-      path: '/admin/itinerari',
-      name: 'adminItinerariesList',
-      meta: {
-        layout: 'default',
-        perimeter: profilePerimeter,
-        perimeterAction: 'isAdmin'
-      },
-      component: AdminItinerariesList
-    },
-    {
-      path: '/admin/itinerari/:slug',
-      name: 'adminItinerary',
-      meta: {
-        layout: 'default',
-        perimeter: profilePerimeter,
-        perimeterAction: 'isAdmin'
-      },
-      component: AdminItinerarySingle
-    },
-    {
-      path: '/admin/itinerari/add',
-      name: 'adminItineraryAdd',
-      meta: {
-        layout: 'default',
-        perimeter: profilePerimeter,
-        perimeterAction: 'isAdmin'
-      },
-      component: AdminItineraryAdd
-    },
-    {
-      path: '/admin/destinazioni',
-      name: 'adminDestinationsList',
-      meta: {
-        layout: 'default',
-        perimeter: profilePerimeter,
-        perimeterAction: 'isAdmin'
-      },
-      component: AdminDestinationsList
-    },
-    {
-      path: '/admin/destinazioni/:slug',
-      name: 'adminDestionation',
-      meta: {
-        layout: 'default',
-        perimeter: profilePerimeter,
-        perimeterAction: 'isAdmin'
-      },
-      component: AdminDestinationSingle
-    },
-    {
-      path: '/admin/destinazioni/add',
-      name: 'adminDestionationAdd',
-      meta: {
-        layout: 'default',
-        perimeter: profilePerimeter,
-        perimeterAction: 'isAdmin'
-      },
-      component: AdminDestinationAdd
+      component: AdminFlashAdd
     },
     {
       path: '/media',

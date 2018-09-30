@@ -1,30 +1,37 @@
 <template>
   <div class="row mt-5 mb-5">
     <div class="col-lg-12 col-md-12 col-sm-12">
-    <div class="box">
-      <h1 class="title">Login</h1>
-      <div class="form-group">
-        <label class="label">Username</label>
-        <div class="control">
-          <input class="form-control" type="text" v-model="form.username" placeholder="Username">
+    <div class="inner cover">
+      <h1 class="text-center mb-5">User Login</h1>
+      <button type="button" class="btn btn-primary btn-block" @click="openFbLoginDialog">Facebook Login</button>
+      <div class="text-center mt-4 mb-5" style="width: 10rem; height: 13px; border-bottom: 1px dotted #ccc; margin: 0 auto;">
+        <span style="font-size: 16px; background-color: #FFF; padding: 0 10px; font-weight: bold; color: #999">
+          OR
+        </span>
+      </div>
+      <form>
+        <div class="form-group">
+            <input class="form-control" type="text" aria-describedby="emailHelp" v-model="form.username" placeholder="Username">
         </div>
-      </div>
-      <div class="form-group">
-        <label class="label">Password</label>
-        <div class="control">
-          <input class="form-control" type="password" v-model="form.password" placeholder="password">
+        <div class="form-group">
+            <input class="form-control" type="password" v-model="form.password" placeholder="password">
         </div>
-      </div>
-      <div class="btn btn-primary" @click="login">
-        Login
-      </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input type="checkbox" class="form-check-input">
+            Remember me
+          </label>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-warning btn-block" @click="login">Log in</button>
+      </form>
+      <router-link to="/">
+        Torna alla home
+      </router-link>
+      <router-link to="/register">
+        Rigistrazione
+      </router-link>
     </div>
-    <router-link to="/">
-      Torna alla home
-    </router-link>
-    <router-link to="/register">
-      Rigistrazione
-    </router-link>
   </div>
 </div>
 </template>
@@ -44,17 +51,34 @@ export default {
     }
   },
   methods: {
+    openFbLoginDialog () {
+       FB.login(this.checkLoginState, { scope: 'email' })
+    },
+    checkLoginState (response) {
+      if (response.status === 'connected') {
+        FB.api('/me', { fields: 'name,email' }, (profile) => {
+          console.log('Good to see you, ' + profile.name + '.')
+        })
+      } else if (response.status === 'not_authorized') {
+        // the user is logged in to Facebook,
+        // but has not authenticated your app
+      } else {
+        // the user isn't logged in to Facebook.
+      }
+    },
     login (evt) {
       evt.preventDefault()
       // this.$router.push('/home')
       API.post(`user/login`, this.form)
       .then(response => {
         // JSON responses are automatically parsed.
+
         this.$router.push('/');
         const decoded = jwt_decode(response.data.token)
         const role = decoded.role
         sessionStorage.setItem('token',response.data.token);
         this.$store.dispatch('updateToken', response.data.token)
+
         // this.$store.dispatch('setRole', role)
         // this.$acl.change(role)
       })
@@ -65,3 +89,40 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.inner {
+     padding: 2rem;
+}
+
+.inner.cover {
+     border: 1px solid #f0f0f0;
+     padding: 2.5rem;
+}
+
+.cover {
+     padding: 0 1.5rem;
+}
+
+.cover .btn-lg {
+     padding: .75rem 1.25rem;
+     font-weight: bold;
+}
+
+@media (min-width: 40em) {
+
+     .cover-container {
+        width: 100%;
+     }
+
+}
+
+@media (min-width: 62em) {
+
+     .cover-container {
+        width: 42rem;
+     }
+
+}
+
+</style>

@@ -12,30 +12,26 @@ import API from '@/api'
 export default {
   name: 'App',
   created() {
-    API.get('destinations')
-    .then(response => {
-      console.log(response)
-      this.$store.dispatch('setDestinations',response.data.set)
-    })
-    .catch(e => {
-      console.log(e)
-    })
-    API.get('hotels')
-    .then(response => {
-      console.log(response)
-      this.$store.dispatch('setHotels',response.data.set)
-    })
-    .catch(e => {
-      console.log(e)
-    })
-    API.get('itineraries')
-    .then(response => {
-      console.log(response)
-      this.$store.dispatch('setItineraries',response.data.set)
-    })
-    .catch(e => {
-      console.log(e)
-    })
+
+    window.fbAsyncInit = () =>{
+      FB.init({
+        appId            : '279181449105942',
+        autoLogAppEvents : true,
+        xfbml            : true,
+        version          : 'v2.10'
+      })
+      FB.AppEvents.logPageView()
+    }
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return}
+       js = d.createElement(s); js.id = id
+       js.src = "//connect.facebook.net/en_US/sdk.js"
+       fjs.parentNode.insertBefore(js, fjs)
+     }(document, 'script', 'facebook-jssdk')
+   )
+
   },
   computed: {
     layout() {
@@ -64,7 +60,7 @@ a:hover, .dropdown-menu a:hover {
   text-decoration: none;
 }
 
-
+/*
 p {
   font-family: 'Cormorant Garamond', serif;
 }
@@ -80,13 +76,14 @@ h2 {
   font-family: 'IM Fell English SC', serif;
   text-transform: lowercase;
 }
+*/
 
 .form-control:focus {
   box-shadow: 0 0 0 0rem rgba(0, 123, 255, 0.25);
 }
 
 .btn-generic {
-  text-align: center;
+  text-align: right;
   margin: auto;
 }
 input.search-input {
@@ -115,25 +112,12 @@ button.search-submit {
   border: 2px solid transparent;
   background-color: rgba(	0, 0, 34,1);
   color: #ffffff;
-  border-radius: 50px;
 }
 .btn-full:hover {
   background-color: #ffffff;
   border: 2px solid rgba(	0, 0, 34,1);
   color: rgba(	0, 0, 34,1);
-  border-radius: 50px;
   transition: 0.3s;
-}
-.cta_itinerari .card-footer:hover {
-  background-color: #ffffff;
-  border: 2px solid rgba(	0, 0, 34,1);
-  color: rgba(0, 0, 34,1)!important;
-}
-.cta_itinerari .card-footer {
-  background-color: rgba(	0, 0, 34,1);
-  border: 2px solid rgba(	0, 0, 34,1);
-  color: #ffffff;
-  text-align: center;
 }
 .page-link {
   color: rgba(	0, 0, 34 ,1);

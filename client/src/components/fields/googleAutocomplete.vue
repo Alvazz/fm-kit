@@ -1,5 +1,5 @@
 <template>
-  <div class="field">
+  <div class="form-group">
     <label class="label">{{field.templateOptions.wrapper.properties.label}}</label>
     <div class="control has-icons-right">
       <gmap-autocomplete v-model="model[field.key].formatted_address" @change="changeFocus" :placeholder="field.templateOptions.properties.placeholder" @place_changed="setPlace"  class="form-control autocomplete" :class="{'is-danger' : isRequired}" :required="properties.required"> </gmap-autocomplete>
@@ -25,9 +25,12 @@ export default {
       isRequired: false
     }
   },
+  created() {
+    console.log(this.model[this.field.key])
+  },
   computed: {
     isEmpty() {
-      return this.model[this.field.key].formatted_address !== ''
+      return this.model[this.field.key].formatted_address
     }
   },
   methods: {
@@ -43,6 +46,7 @@ export default {
       }
     },
     change() {
+      this.formatted_address = ''
       this.model[this.field.key] = {
         item: {},
         location: { lat: 0, lng: 0 },
@@ -68,7 +72,9 @@ export default {
       )
     },
     setPlace(place) {
-      this.model[this.field.key].name = place.formatted_address
+      console.log(this.field.key)
+      this.model[this.field.key].formatted_address = place.formatted_address
+      //this.model[this.field.key].name = place.formatted_address
       this.model[this.field.key].coords = {}
       this.model[this.field.key].coords.lat = place.geometry.location.lat()
       this.model[this.field.key].coords.lng = place.geometry.location.lng()
@@ -78,4 +84,15 @@ export default {
 }
 </script>
 <style scoped>
+.has-icons-right {
+  position: relative;
+}
+.is-right {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+}
+.is-clickable {
+  cursor: pointer;
+}
 </style>

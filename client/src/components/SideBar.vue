@@ -7,36 +7,12 @@
         </p>
         <ul class="menu-list">
           <li>
-            <a>Hotels</a>
+            <a>Flashes</a>
             <ul>
               <li>
-                <router-link :to="{name: 'adminHotelAdd'}">Add</router-link>
+                <router-link :to="{name: 'adminFlashAdd'}">Add</router-link>
               </li>
-              <li><router-link :to="{name: 'adminHotelsList'}">All</router-link></li>
-            </ul>
-          </li>
-          <li>
-            <a>Itinerari</a>
-            <ul>
-              <li>
-                <router-link :to="{name: 'adminItineraryAdd'}">Add</router-link>
-              </li>
-              <li><router-link :to="{name: 'adminItinerariesList'}">All</router-link></li>
-            </ul>
-          </li>
-          <li>
-            <a>Destinazioni</a>
-            <ul>
-              <li>
-                <router-link :to="{name: 'adminDestionationAdd'}">Add</router-link>
-              </li>
-              <li><router-link :to="{name: 'adminDestinationsList'}">All</router-link></li>
-            </ul>
-          </li>
-          <li>
-            <a>Media</a>
-            <ul>
-              <li><router-link :to="{name: 'adminMediaList'}">All</router-link></li>
+              <li><router-link :to="{name: 'adminFlashesList'}">All</router-link></li>
             </ul>
           </li>
         </ul>

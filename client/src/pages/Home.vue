@@ -25,30 +25,6 @@ export default {
     }
   },
   created() {
-    API.get('destinations')
-    .then(response => {
-      console.log(response)
-      this.$store.dispatch('setDestinations',response.data.set)
-    })
-    .catch(e => {
-      console.log(e)
-    })
-    API.get('hotels')
-    .then(response => {
-      console.log(response)
-      this.$store.dispatch('setHotels',response.data.set)
-    })
-    .catch(e => {
-      console.log(e)
-    })
-    API.get('itineraries')
-    .then(response => {
-      console.log(response)
-      this.$store.dispatch('setItineraries',response.data.set)
-    })
-    .catch(e => {
-      console.log(e)
-    })
   },
   computed: {
   },

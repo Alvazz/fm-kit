@@ -1,0 +1,1182 @@
+---
+swagger: "2.0"
+info:
+  description: "Flashmoov"
+  version: "2.0.0"
+  title: "Flashmoov"
+  termsOfService: "http://flashmoov.com/"
+  contact:
+    email: "tech@flashmoov.com"
+  license:
+    name: "Apache 2.0"
+    url: "http://flashmoov/services/licenses/LICENSE-2.0.html"
+host: "35.205.158.207:8080"
+basePath: "/rest"
+schemes:
+- "http"
+- "https"
+security:
+- JWT: []
+paths:
+  /alive:
+    get:
+      tags:
+      - "Check"
+      summary: "Check services are alive"
+      description: "Check services are alive"
+      operationId: "isAlive"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "object"
+            properties: {}
+      x-swagger-router-controller: "Check"
+  /info:
+    get:
+      tags:
+      - "Check"
+      summary: "Check platform info"
+      description: "Check platform info"
+      operationId: "Info"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "object"
+            properties: {}
+      x-swagger-router-controller: "Check"
+  /flash/init:
+    post:
+      tags:
+      - "Register"
+      summary: "App initialization"
+      description: "App initialization"
+      operationId: "AppInitialization"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "FlashInitBody"
+        description: "Flash content"
+        required: true
+        schema:
+          $ref: "#/definitions/FlashInitBody"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/FlashmoovAPIResponse"
+      x-swagger-router-controller: "Register"
+  /card/create:
+    post:
+      tags:
+      - "Manage"
+      summary: "Create card"
+      operationId: "FlashCreateCard"
+      parameters:
+      - in: "body"
+        name: "FlashCreateCardBody"
+        description: "Flash content"
+        required: true
+        schema:
+          $ref: "#/definitions/FlashCreateCardBody"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/FlashmoovAPIResponse"
+      x-swagger-router-controller: "Manage"
+  /flash/upload/{id}:
+    post:
+      tags:
+      - "Manage"
+      summary: "Uploads a file."
+      operationId: "FlashUploadContent"
+      consumes:
+      - "multipart/form-data"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "Flash id"
+        required: true
+        type: "string"
+      - name: "cover"
+        in: "formData"
+        required: true
+        type: "file"
+      - name: "contentImage"
+        in: "formData"
+        required: false
+        type: "file"
+      - name: "contentVideo"
+        in: "formData"
+        required: false
+        type: "file"
+      - name: "contentAudio"
+        in: "formData"
+        required: false
+        type: "file"
+      - name: "contentText"
+        in: "formData"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/FlashmoovAPIResponse"
+      x-swagger-router-controller: "Manage"
+  /flash/update:
+    post:
+      tags:
+      - "Manage"
+      summary: "Update product"
+      description: "Update product"
+      operationId: "FlashUpdate"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "FlashUpdateBody"
+        required: true
+        schema:
+          $ref: "#/definitions/FlashUpdateBody"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/FlashmoovAPIResponse"
+      x-swagger-router-controller: "Manage"
+  /flash/delete:
+    post:
+      tags:
+      - "Manage"
+      summary: "Delete products"
+      description: "Delete product"
+      operationId: "FlashDelete"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "FlashDeleteBody"
+        description: "more book information"
+        required: true
+        schema:
+          $ref: "#/definitions/FlashDeleteBody"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/FlashmoovAPIResponse"
+      x-swagger-router-controller: "Manage"
+  /flash/share:
+    post:
+      tags:
+      - "Act"
+      summary: "Share the flash"
+      description: "Share the flash"
+      operationId: "FlashShare"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "FlashShareBody"
+        description: "more book information"
+        required: true
+        schema:
+          $ref: "#/definitions/ShareBodyRequest"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/FlashmoovAPIResponse"
+      x-swagger-router-controller: "Act"
+  /flash/like:
+    post:
+      tags:
+      - "Act"
+      summary: "Share the flash"
+      description: "Share the flash"
+      operationId: "FlashLike"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "FlashLikeBody"
+        description: "more book information"
+        required: true
+        schema:
+          $ref: "#/definitions/LikeBodyRequest"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/FlashmoovAPIResponse"
+      x-swagger-router-controller: "Act"
+  /flash/autocomplete:
+    post:
+      tags:
+      - "Retrieve"
+      summary: "Create a new product"
+      description: "Create a new product"
+      operationId: "FlashAutocomplete"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "FlashAutocompleteBody"
+        required: false
+        schema:
+          $ref: "#/definitions/FlashAutocompleteBody"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/FlashmoovAPIResponse"
+      x-swagger-router-controller: "Retrieve"
+  /flash/query:
+    post:
+      tags:
+      - "Retrieve"
+      summary: "Get products"
+      description: "Get products"
+      operationId: "FlashQuery"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "FlashQueryBody"
+        description: "more book information"
+        required: true
+        schema:
+          $ref: "#/definitions/FlashQueryBody"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/FlashmoovAPIResponse"
+      x-swagger-router-controller: "Retrieve"
+  /flash/recommanded:
+    post:
+      tags:
+      - "Retrieve"
+      summary: "Get products"
+      description: "Get products"
+      operationId: "FlashRecommanded"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "FlashRecommandedBody"
+        description: "more book information"
+        required: true
+        schema:
+          $ref: "#/definitions/FlashRecommandedBody"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/FlashmoovAPIResponse"
+      x-swagger-router-controller: "Retrieve"
+  /flash/promoted:
+    post:
+      tags:
+      - "Retrieve"
+      summary: "Get products"
+      description: "Get products"
+      operationId: "FlashPromoted"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "FlashPromoteBody"
+        description: "more book information"
+        required: true
+        schema:
+          $ref: "#/definitions/FlashPromoteBody"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/FlashmoovAPIResponse"
+      x-swagger-router-controller: "Retrieve"
+securityDefinitions:
+  JWT:
+    type: "apiKey"
+    name: "Authorization"
+    in: "header"
+definitions:
+  Ids:
+    type: "array"
+    items:
+      type: "string"
+  Props:
+    type: "object"
+    additionalProperties:
+      type: "object"
+      properties: {}
+  Tags:
+    type: "array"
+    items:
+      type: "string"
+  Trait:
+    type: "object"
+    required:
+    - "trait-superclass-of"
+    discriminator: "trait-superclass-of"
+    properties:
+      trait-superclass-of:
+        type: "string"
+        enum:
+        - "StoreObject"
+      trait:
+        type: "string"
+  Meta:
+    type: "object"
+    properties:
+      creator:
+        $ref: "#/definitions/Actor"
+      created:
+        type: "integer"
+        format: "int64"
+      updated:
+        type: "integer"
+        format: "int64"
+      props:
+        $ref: "#/definitions/Props"
+      tags:
+        $ref: "#/definitions/Tags"
+      autocomplete:
+        type: "string"
+  StoreObject:
+    allOf:
+    - $ref: "#/definitions/Trait"
+    - type: "object"
+      properties:
+        storeobject-superclass-of:
+          type: "string"
+          enum:
+          - "Actor"
+          - "Flash"
+          - "CardInteraction"
+          - "TemporarySocialLogin"
+        _id:
+          type: "string"
+        meta:
+          $ref: "#/definitions/Meta"
+  BlobStoreObject:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+      filename:
+        type: "string"
+      contentType:
+        type: "string"
+      chunkSize:
+        type: "integer"
+        format: "int32"
+      length:
+        type: "number"
+        format: "float"
+      md5:
+        type: "string"
+      meta:
+        $ref: "#/definitions/Meta"
+  UpdateParam:
+    type: "object"
+    properties:
+      query:
+        $ref: "#/definitions/Query"
+      data:
+        type: "object"
+        properties: {}
+  CardInteraction:
+    allOf:
+    - $ref: "#/definitions/StoreObject"
+    - type: "object"
+      properties:
+        ownerid:
+          type: "string"
+        userid:
+          type: "string"
+        cardid:
+          type: "string"
+  ActorEnum:
+    type: "string"
+    enum:
+    - "admin"
+    - "partner"
+    - "user"
+    - "guest"
+  Address:
+    type: "object"
+    properties:
+      city:
+        type: "string"
+      country:
+        type: "string"
+      state:
+        type: "string"
+      address:
+        type: "string"
+      zipCode:
+        type: "string"
+      geojson:
+        $ref: "#/definitions/GeoJsonGeometryCollection"
+  ActorAccount:
+    type: "object"
+    properties:
+      username:
+        type: "string"
+      password:
+        type: "string"
+  ActorProfile:
+    type: "object"
+    properties:
+      firstName:
+        type: "string"
+      lastName:
+        type: "string"
+      nickName:
+        type: "string"
+      mail:
+        type: "string"
+        format: "email"
+      avatar:
+        type: "string"
+      address:
+        $ref: "#/definitions/Address"
+  SocialInfo:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+      social:
+        $ref: "#/definitions/SocialEnum"
+      name:
+        type: "string"
+      token:
+        type: "string"
+    example:
+      social: {}
+      name: "name"
+      id: "id"
+      token: "token"
+  SocialProfile:
+    type: "object"
+    additionalProperties:
+      $ref: "#/definitions/SocialInfo"
+  SocialEnum:
+    type: "string"
+    enum:
+    - "facebook"
+    - "instagram"
+    - "twitter"
+  Actor:
+    allOf:
+    - $ref: "#/definitions/StoreObject"
+    - type: "object"
+      properties:
+        profileType:
+          $ref: "#/definitions/ActorEnum"
+        profile:
+          $ref: "#/definitions/ActorProfile"
+        account:
+          $ref: "#/definitions/ActorAccount"
+        social:
+          $ref: "#/definitions/SocialProfile"
+  FlashTemp:
+    allOf:
+    - $ref: "#/definitions/StoreObject"
+    - type: "object"
+      properties:
+        socialInfo:
+          $ref: "#/definitions/SocialInfo"
+        flash:
+          $ref: "#/definitions/Flash"
+  SessionTemp:
+    allOf:
+    - $ref: "#/definitions/StoreObject"
+    - {}
+  Coordinates:
+    type: "object"
+    properties:
+      lng:
+        type: "number"
+        format: "float"
+      lat:
+        type: "number"
+        format: "float"
+  GeoJsonGeometryCollection:
+    type: "object"
+    properties:
+      type:
+        type: "string"
+        default: "GeometryCollection"
+      geometries:
+        type: "array"
+        items:
+          type: "object"
+          properties: {}
+    example:
+      geometries:
+      - "{}"
+      - "{}"
+      type: "GeometryCollection"
+  FlashContentTypeEnum:
+    type: "string"
+    enum:
+    - "image"
+    - "audio"
+    - "video"
+    - "text"
+  FlashVisibilityEnum:
+    type: "string"
+    enum:
+    - "pending"
+    - "offline"
+    - "private"
+    - "public"
+  FlashCard:
+    type: "object"
+    properties:
+      title:
+        type: "string"
+      uri:
+        type: "string"
+      description:
+        type: "string"
+      language:
+        type: "string"
+      status:
+        $ref: "#/definitions/FlashVisibilityEnum"
+      policies:
+        $ref: "#/definitions/FlashPolicies"
+    example:
+      policies:
+        readable:
+          interval:
+            duration: 1
+            iso: "iso"
+            start:
+              iso: "iso"
+              utcTS: 6
+              ts: 0
+            end:
+              iso: "iso"
+              utcTS: 6
+              ts: 0
+          location:
+            geometries:
+            - "{}"
+            - "{}"
+            type: "GeometryCollection"
+        writable:
+          interval:
+            duration: 1
+            iso: "iso"
+            start:
+              iso: "iso"
+              utcTS: 6
+              ts: 0
+            end:
+              iso: "iso"
+              utcTS: 6
+              ts: 0
+          location:
+            geometries:
+            - "{}"
+            - "{}"
+            type: "GeometryCollection"
+      description: "description"
+      language: "language"
+      title: "title"
+      uri: "uri"
+      status: {}
+  FlashContent:
+    type: "object"
+    properties:
+      content-type:
+        $ref: "#/definitions/FlashContentTypeEnum"
+      uri:
+        type: "string"
+      message:
+        type: "string"
+  FlashPolicies:
+    type: "object"
+    properties:
+      readable:
+        $ref: "#/definitions/FlashPermission"
+      writable:
+        $ref: "#/definitions/FlashPermission"
+    example:
+      readable:
+        interval:
+          duration: 1
+          iso: "iso"
+          start:
+            iso: "iso"
+            utcTS: 6
+            ts: 0
+          end:
+            iso: "iso"
+            utcTS: 6
+            ts: 0
+        location:
+          geometries:
+          - "{}"
+          - "{}"
+          type: "GeometryCollection"
+      writable:
+        interval:
+          duration: 1
+          iso: "iso"
+          start:
+            iso: "iso"
+            utcTS: 6
+            ts: 0
+          end:
+            iso: "iso"
+            utcTS: 6
+            ts: 0
+        location:
+          geometries:
+          - "{}"
+          - "{}"
+          type: "GeometryCollection"
+  FlashPermission:
+    type: "object"
+    properties:
+      interval:
+        $ref: "#/definitions/DateTimeInterval"
+      location:
+        $ref: "#/definitions/GeoJsonGeometryCollection"
+    example:
+      interval:
+        duration: 1
+        iso: "iso"
+        start:
+          iso: "iso"
+          utcTS: 6
+          ts: 0
+        end:
+          iso: "iso"
+          utcTS: 6
+          ts: 0
+      location:
+        geometries:
+        - "{}"
+        - "{}"
+        type: "GeometryCollection"
+  Flash:
+    allOf:
+    - $ref: "#/definitions/StoreObject"
+    - type: "object"
+      properties:
+        base:
+          type: "string"
+        owner:
+          $ref: "#/definitions/Actor"
+        card:
+          $ref: "#/definitions/FlashCard"
+        content:
+          $ref: "#/definitions/FlashContent"
+  Query:
+    type: "object"
+    properties:
+      query:
+        type: "object"
+        properties: {}
+      prj:
+        $ref: "#/definitions/Query_prj"
+      sort:
+        $ref: "#/definitions/Query_sort"
+      skip:
+        type: "integer"
+        format: "int32"
+      limit:
+        type: "integer"
+        format: "int32"
+    example:
+      query: "{}"
+      limit: 6
+      prj:
+        include: true
+        fields:
+        - "fields"
+        - "fields"
+      skip: 0
+      sort:
+        asc: true
+        fields:
+        - "fields"
+        - "fields"
+  FlashmoovAPIRequest:
+    type: "object"
+    discriminator: "requestdata-superclass-of"
+    properties:
+      storeobject-superclass-of:
+        type: "string"
+        enum:
+        - "FlashBodyRequest"
+      session:
+        type: "object"
+        properties: {}
+      actor:
+        $ref: "#/definitions/Actor"
+      custom:
+        type: "object"
+        properties: {}
+      callback:
+        type: "string"
+      query:
+        $ref: "#/definitions/Query"
+      autocomplete:
+        type: "string"
+  FlashBodyRequest:
+    allOf:
+    - $ref: "#/definitions/FlashmoovAPIRequest"
+    - type: "object"
+      properties:
+        body:
+          $ref: "#/definitions/Flash"
+  ShareBodyRequest:
+    allOf:
+    - $ref: "#/definitions/FlashmoovAPIRequest"
+    - type: "object"
+      properties:
+        body:
+          $ref: "#/definitions/Flash"
+  LikeBodyRequest:
+    allOf:
+    - $ref: "#/definitions/FlashmoovAPIRequest"
+    - type: "object"
+      properties:
+        body:
+          $ref: "#/definitions/Flash"
+  FlashmoovAPIResponse:
+    type: "object"
+    properties:
+      custom:
+        type: "object"
+        properties: {}
+      session:
+        type: "object"
+        properties: {}
+      size:
+        type: "integer"
+      total:
+        type: "integer"
+      set:
+        type: "array"
+        items:
+          type: "object"
+          properties: {}
+      status:
+        type: "integer"
+        format: "int32"
+      message:
+        type: "string"
+    example:
+      total: 6
+      set:
+      - "{}"
+      - "{}"
+      size: 0
+      session: "{}"
+      custom: "{}"
+      message: "message"
+      status: 1
+  StatusEnum:
+    type: "string"
+    enum:
+    - "online"
+    - "offline"
+    - "draft"
+    - "disabled"
+  MultimediaContentEnum:
+    type: "string"
+    enum:
+    - "image"
+    - "audio"
+    - "video"
+  MultimediaContent:
+    type: "object"
+    properties:
+      mime:
+        type: "string"
+      url:
+        type: "string"
+      rank:
+        type: "integer"
+        format: "int32"
+        minimum: 0
+        maximum: 100
+  Location:
+    type: "object"
+    properties:
+      lat:
+        type: "number"
+        format: "float"
+      lng:
+        type: "number"
+        format: "float"
+  DateAndTime:
+    type: "object"
+    properties:
+      iso:
+        type: "string"
+      ts:
+        type: "integer"
+        format: "int64"
+      utcTS:
+        type: "integer"
+        format: "int64"
+    example:
+      iso: "iso"
+      utcTS: 6
+      ts: 0
+  DateTimeInterval:
+    type: "object"
+    properties:
+      start:
+        $ref: "#/definitions/DateAndTime"
+      end:
+        $ref: "#/definitions/DateAndTime"
+      iso:
+        type: "string"
+      duration:
+        type: "integer"
+        format: "int64"
+        description: "Duration in minute"
+    example:
+      duration: 1
+      iso: "iso"
+      start:
+        iso: "iso"
+        utcTS: 6
+        ts: 0
+      end:
+        iso: "iso"
+        utcTS: 6
+        ts: 0
+  PlatformConfiguration:
+    type: "object"
+    additionalProperties:
+      $ref: "#/definitions/EnvironmentConfiguration"
+  EnvironmentConfiguration:
+    type: "object"
+    properties:
+      mongoDatasource:
+        type: "array"
+        items:
+          $ref: "#/definitions/MongoConfiguration"
+  MongoConfiguration:
+    type: "array"
+    items:
+      $ref: "#/definitions/MongoConfiguration_inner"
+  FacebookConfiguration:
+    type: "object"
+    properties:
+      applicationKey:
+        type: "string"
+      applicationSecret:
+        type: "string"
+      flashmoovPageId:
+        type: "string"
+      flashmoovAccessToken:
+        type: "string"
+  ApplicationConfiguration:
+    type: "object"
+    properties:
+      base:
+        type: "string"
+  FlashConfiguration:
+    type: "object"
+    properties:
+      maxTitle:
+        type: "integer"
+        format: "int32"
+        default: 256
+      maxDescription:
+        type: "integer"
+        format: "int32"
+        default: 256
+      maxVideoContent:
+        type: "integer"
+        format: "int32"
+        default: 256
+      maxAudioContent:
+        type: "integer"
+        format: "int32"
+        default: 256
+      maxImageContent:
+        type: "integer"
+        format: "int32"
+        default: 256
+      maxTextContent:
+        type: "integer"
+        format: "int32"
+        default: 256
+  FlashInitBody:
+    type: "object"
+    properties:
+      appId:
+        type: "string"
+      owner:
+        $ref: "#/definitions/SocialInfo"
+    example:
+      owner:
+        social: {}
+        name: "name"
+        id: "id"
+        token: "token"
+      appId: "appId"
+  FlashCreateCardBody:
+    type: "object"
+    properties:
+      appId:
+        type: "string"
+      owner:
+        $ref: "#/definitions/SocialInfo"
+      card:
+        $ref: "#/definitions/FlashCard"
+    example:
+      owner:
+        social: {}
+        name: "name"
+        id: "id"
+        token: "token"
+      appId: "appId"
+      card:
+        policies:
+          readable:
+            interval:
+              duration: 1
+              iso: "iso"
+              start:
+                iso: "iso"
+                utcTS: 6
+                ts: 0
+              end:
+                iso: "iso"
+                utcTS: 6
+                ts: 0
+            location:
+              geometries:
+              - "{}"
+              - "{}"
+              type: "GeometryCollection"
+          writable:
+            interval:
+              duration: 1
+              iso: "iso"
+              start:
+                iso: "iso"
+                utcTS: 6
+                ts: 0
+              end:
+                iso: "iso"
+                utcTS: 6
+                ts: 0
+            location:
+              geometries:
+              - "{}"
+              - "{}"
+              type: "GeometryCollection"
+        description: "description"
+        language: "language"
+        title: "title"
+        uri: "uri"
+        status: {}
+  FlashUpdateBody:
+    type: "object"
+    properties:
+      appId:
+        type: "string"
+      query:
+        type: "object"
+        properties: {}
+      flash:
+        $ref: "#/definitions/Flash"
+    example:
+      appId: "appId"
+      query: "{}"
+      flash: ""
+  FlashDeleteBody:
+    type: "object"
+    properties:
+      appId:
+        type: "string"
+      query:
+        type: "object"
+        properties: {}
+    example:
+      appId: "appId"
+      query: "{}"
+  FlashAutocompleteBody:
+    type: "object"
+    properties:
+      appId:
+        type: "string"
+      autocomplete:
+        type: "string"
+    example:
+      autocomplete: "autocomplete"
+      appId: "appId"
+  FlashQueryBody:
+    type: "object"
+    properties:
+      appId:
+        type: "string"
+      params:
+        $ref: "#/definitions/Query"
+    example:
+      appId: "appId"
+      params:
+        query: "{}"
+        limit: 6
+        prj:
+          include: true
+          fields:
+          - "fields"
+          - "fields"
+        skip: 0
+        sort:
+          asc: true
+          fields:
+          - "fields"
+          - "fields"
+  FlashRecommandedBody:
+    type: "object"
+    properties:
+      appId:
+        type: "string"
+    example:
+      appId: "appId"
+  FlashPromoteBody:
+    type: "object"
+    properties:
+      appId:
+        type: "string"
+    example:
+      appId: "appId"
+  Query_prj:
+    properties:
+      include:
+        type: "boolean"
+        default: true
+      fields:
+        type: "array"
+        items:
+          type: "string"
+    example:
+      include: true
+      fields:
+      - "fields"
+      - "fields"
+  Query_sort:
+    properties:
+      asc:
+        type: "boolean"
+        default: true
+      fields:
+        type: "array"
+        items:
+          type: "string"
+    example:
+      asc: true
+      fields:
+      - "fields"
+      - "fields"
+  MongoConfiguration_inner:
+    properties:
+      uri:
+        type: "string"
+      scopes:
+        type: "array"
+        items:
+          type: "string"
+parameters:
+  AppIdHeader:
+    name: "x-fm-app"
+    in: "header"
+    description: "App id"
+    required: true
+    type: "string"
+  SocialHeader:
+    name: "x-fm-social"
+    in: "header"
+    description: "Social type"
+    required: false
+    type: "string"
+    enum:
+    - "facebook"
+    - "instagram"
+    - "twitter"
+  TokenHeader:
+    name: "x-fm-token"
+    in: "header"
+    description: "Social token"
+    required: false
+    type: "string"
+  RemoteDebug:
+    name: "x-fm-debug"
+    in: "header"
+    description: "Account auth - base64 user and password"
+    required: false
+    type: "boolean"
+  IdParameter:
+    name: "id"
+    in: "path"
+    description: "id"
+    required: true
+    type: "string"
+  PrjParameter:
+    name: "prj"
+    in: "query"
+    description: "Projection"
+    required: false
+    type: "array"
+    items:
+      type: "string"
+    collectionFormat: "multi"
+  ProductTypeParameter:
+    name: "product-type"
+    in: "path"
+    description: "Product type"
+    required: true
+    type: "string"
+externalDocs:
+  description: "Find out more about Flashmoov platform"
+  url: "http://flashmoov/services/docs/index.html"
