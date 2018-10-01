@@ -10,7 +10,7 @@
               <hr class="my-4">
               <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
               <p class="lead">
-                <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+                <a class="btn btn-primary btn-lg" href="#" role="button" @click="testApi">Learn more</a>
               </p>
             </div>
           </div>
@@ -62,6 +62,7 @@
 
 <script>
 import API from '@/api'
+import Swagger from '@/swagger-api'
 
 export default {
   name: 'Home',
@@ -77,6 +78,17 @@ export default {
   computed: {
   },
   methods: {
+    testApi(){
+
+      Swagger.api.flashLike(Swagger.body.flashLikeBody, (error, data, response) => {
+        if (error) {
+          console.error(error);
+        } else {
+          console.log('API called successfully. Returned data: ' + data);
+        }
+      })
+
+    },
     switchLocale() {
       if (this.$i18n.locale === 'it') {
         this.$i18n.locale = 'en'
