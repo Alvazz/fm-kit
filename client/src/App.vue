@@ -13,14 +13,16 @@ export default {
   name: 'App',
   created() {
 
-    window.fbAsyncInit = () =>{
+    window.fbAsyncInit = () => {
+
       FB.init({
-        appId            : '279181449105942',
+        appId            : '279181449105942',//'488079371531079',
         autoLogAppEvents : true,
         xfbml            : true,
-        version          : 'v2.10'
+        version          : 'v3.1'
       })
-      FB.AppEvents.logPageView()
+
+      //FB.AppEvents.logPageView()
     }
 
     (function(d, s, id){

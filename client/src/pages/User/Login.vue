@@ -56,9 +56,27 @@ export default {
     },
     checkLoginState (response) {
       if (response.status === 'connected') {
-        FB.api('/me', { fields: 'name,email' }, (profile) => {
-          console.log('Good to see you, ' + profile.name + '.')
-        })
+        console.log(response.authResponse.accessToken);
+
+        //this.$router.push('/');
+        //sessionStorage.setItem('token',response.authResponse.accessToken)
+        //this.$store.dispatch('updateToken', response.authResponse.accessToken)
+
+        FB.api('/me', (response) => {
+            console.log(JSON.stringify(response))
+            sessionStorage.setItem('user',JSON.stringify(response))
+        });
+        /*
+        FB.api( "/me/feed",
+                "POST",
+                {
+                  "message": "Test"
+                },
+                (response) => {
+                  console.log(JSON.stringify(response));
+                }
+        )
+        */
       } else if (response.status === 'not_authorized') {
         // the user is logged in to Facebook,
         // but has not authenticated your app
