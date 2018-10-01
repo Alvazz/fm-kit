@@ -60,6 +60,7 @@ export default {
         //this.$router.push('/');
         //sessionStorage.setItem('token',response.authResponse.accessToken)
         //this.$store.dispatch('updateToken', response.authResponse.accessToken)
+        const token = response.authResponse.accessToken
 
         FB.api('/me', (response) => {
 
@@ -68,11 +69,11 @@ export default {
           const owner = {
             "id": response.id,
             "social": "facebook",
-            "token": response.authResponse.accessToken
+            "token": token
           }
 
           sessionStorage.setItem('owner',JSON.stringify(owner))
-          
+
         });
         /*
         FB.api( "/me/feed",
