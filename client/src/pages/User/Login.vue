@@ -67,12 +67,19 @@ export default {
           console.log(JSON.stringify(response))
 
           const owner = {
-            "id": response.id,
-            "social": "facebook",
-            "token": token
+            owner: {
+              id: response.id,
+              social: "facebook",
+              token: token
+            }
           }
-
+          
           sessionStorage.setItem('owner',JSON.stringify(owner))
+
+          API.post('/flashmoov/rest/flash/init', owner)
+          .then(res => {
+            console.log(res.data)
+          })
 
         });
         /*

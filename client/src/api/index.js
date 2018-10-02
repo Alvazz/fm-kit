@@ -3,7 +3,7 @@ import store from '@/store'
 import router from '@/router'
 
 const API = axios.create({
-  baseURL: 'http://localhost:3001/' //'https://vue-start-kit-server.herokuapp.com/' //
+  baseURL: 'http://35.205.158.207:8080'//'http://localhost:3001/' //'https://vue-start-kit-server.herokuapp.com/' //
 })
 
 // Request

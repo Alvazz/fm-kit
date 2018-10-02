@@ -82,14 +82,21 @@ export default {
 
       console.log(Swagger.body.register.flashInitBody)
 
+
       const owner = {
-        "owner": {
-          "id": "10211594796978932",
-          "social": "facebook",
-          "token": "EAAG759WP80cBAHZCSoaQlDKp5T949IdhkZAwncfshnZADVYoH1pCPgcK6y2TTjoL8ZCBjlRMTZB0KM7N8vy3cgD1Iqxh52ZCfWZBYaZBRv8y5vDVRTbSOoZBZCMCrHZAN54h54ByoNkB8yVLecisHXHG3k9AQZBnZAgcydjbqqsNENYG3PEDXb2arB8tChKZBL0zrAZB7ZCclEyC488QAQZDZD"
+        owner: {
+          id: "10211594796978932",
+          social: "facebook",
+          token: "EAAG759WP80cBAHZCSoaQlDKp5T949IdhkZAwncfshnZADVYoH1pCPgcK6y2TTjoL8ZCBjlRMTZB0KM7N8vy3cgD1Iqxh52ZCfWZBYaZBRv8y5vDVRTbSOoZBZCMCrHZAN54h54ByoNkB8yVLecisHXHG3k9AQZBnZAgcydjbqqsNENYG3PEDXb2arB8tChKZBL0zrAZB7ZCclEyC488QAQZDZD"
         }
       }
+      //JSON.parse(sessionStorage.getItem('owner'))
+      API.post('/flashmoov/rest/flash/init', owner)
+      .then(res => {
+        console.log(res.data)
+      })
 
+      /*
       Swagger.api.register.appInitialization(owner, (error, data, response) => {
         if (error) {
           console.error(error);
@@ -97,7 +104,7 @@ export default {
           console.log('API called successfully. Returned data: ' + data);
         }
       })
-
+      */
     },
     switchLocale() {
       if (this.$i18n.locale === 'it') {
