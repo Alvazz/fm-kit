@@ -7,9 +7,29 @@ var JWT = defaultClient.authentications['JWT'];
 JWT.apiKey = "YOUR API KEY"
 
 const Swagger = {
-  api:new Flashmoov.ActApi(),
+  api: {
+    check: new Flashmoov.CheckApi(),
+    act:new Flashmoov.ActApi(),
+    register: new Flashmoov.RegisterApi(),
+    menage: new Flashmoov.ManageApi(),
+    retrive: new Flashmoov.RetrieveApi()
+  },
   body: {
-    flashLikeBody: new Flashmoov.LikeBodyRequest()
+    check: {},
+    act: {
+      flashLikeBody: new Flashmoov.LikeBodyRequest(),
+    },
+    register: {
+      flashInitBody: new Flashmoov.FlashInitBody(),
+    },
+    menage: {
+      flashCreateCardBody: new Flashmoov.FlashCreateCardBody(),
+      //flashReadableCodeBody: new Flashmoov.FlashReadableCodeBody(),
+      //flashWritableCodeBody: new Flashmoov.FlashWritableCodeBody(),
+      //flashUpdateBody: new Flashmoov.FlashUpdateBody(),
+      //flashDeleteBody: new Flashmoov.FlashDeleteBody()
+    },
+    retrive: {}
   }
 }
 
