@@ -76,7 +76,7 @@ const mutations = {
     state.jwt = newToken
   },
   REMOVE_TOKEN(state) {
-    sessionStorage.removeItem('token')
+    sessionStorage.removeItem('owner')
     state.role = 'public'
     state.jwt = null
   }

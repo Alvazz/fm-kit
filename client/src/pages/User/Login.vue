@@ -3,13 +3,19 @@
     <div class="col-lg-12 col-md-12 col-sm-12">
       <div class="inner cover">
         <h1 class="text-center mb-5">User Login</h1>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert" v-show="error.length > 0">
+          {{error}}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close" @click="closeError">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
         <button type="button" class="btn btn-primary btn-block" @click="openFbLoginDialog">Facebook Login</button>
         <div class="text-center mt-4 mb-5" style="width: 10rem; height: 13px; border-bottom: 1px dotted #ccc; margin: 0 auto;">
           <span style="font-size: 16px; background-color: #FFF; padding: 0 10px; font-weight: bold; color: #999">
             OR
           </span>
         </div>
-        <form>
+        <form v-show="false">
           <div class="form-group">
             <input class="form-control" type="text" aria-describedby="emailHelp" v-model="form.username" placeholder="Username">
           </div>
@@ -25,10 +31,10 @@
           <br>
           <button type="submit" class="btn btn-warning btn-block" @click="login">Log in</button>
         </form>
-        <router-link to="/">
+        <router-link class="btn btn-warning btn-block" to="/">
           Torna alla home
         </router-link>
-        <router-link to="/register">
+        <router-link  v-show="false" class="btn btn-warning btn-block" to="/register">
           Rigistrazione
         </router-link>
       </div>
@@ -44,6 +50,7 @@ export default {
   name: 'Login',
   data () {
     return {
+      error: '',
       form: {
         username: 'test',
         password: '123'
@@ -54,7 +61,11 @@ export default {
     openFbLoginDialog () {
       FB.login(this.checkLoginState, { scope: 'email' })
     },
+    closeError(){
+      this.error = ''
+    },
     checkLoginState (response) {
+      const self= this
       if (response.status === 'connected') {
         console.log(response.authResponse.accessToken);
         //this.$router.push('/');
@@ -65,8 +76,7 @@ export default {
         FB.api('/me', (response) => {
 
           console.log(JSON.stringify(response))
-
-          const owner = {
+          const owner ={
             owner: {
               id: response.id,
               social: "facebook",
@@ -79,6 +89,10 @@ export default {
           API.post('/flashmoov/rest/flash/init', owner)
           .then(res => {
             console.log(res.data)
+          })
+          .catch(err =>{
+            console.log(err)
+            self.error = err.response.statusText
           })
 
         });

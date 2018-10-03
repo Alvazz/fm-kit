@@ -1,3 +1,4 @@
+
 import axios from 'axios'
 import store from '@/store'
 import router from '@/router'
@@ -35,8 +36,8 @@ API.interceptors.response.use(
     //&& error.response.data.error == 'token_expired'
     if (error.response.status === 401 || error.response.status === 409) {
       originalRequest._retry = true
-      this.$store.dispatch('removeToken')
-      router.push({ name: 'login' })
+      //store.dispatch('removeToken')
+      //router.push({ name: 'login' })
       /*
       store
         .dispatch('refreshToken')
