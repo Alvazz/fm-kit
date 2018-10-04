@@ -150,7 +150,8 @@ export default {
 <style lang="scss">
 .navbar {
 	height: 10vh;
-	background-color: rgba(	24, 27, 47 ,1);
+  color: rgba(	24, 27, 47 ,1);
+	//background-color: rgba(	24, 27, 47 ,1);
 }
 .navbar-brand{z-index: 1040;}
 .navbar-toggler{z-index: 1030;}
@@ -159,10 +160,10 @@ export default {
 	font-family: 'Josefin Sans', sans-serif;
 	text-transform: uppercase;
 	font-size: 0.8em;
-	color: #fff;
+  color: rgba(	24, 27, 47 ,1);
 }
 .menu-item a {
-	color: #fff;
+  color: rgba(	24, 27, 47 ,1);
 	margin: 1em;
 }
 .menu-item a:hover {

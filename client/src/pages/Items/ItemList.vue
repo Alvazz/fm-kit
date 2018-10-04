@@ -6,7 +6,7 @@
     <template v-else>
       <h1 class="title">Items List</h1>
       <ul>
-        <li v-for="(item, index) in items">
+        <li v-for="(item, index) in items" :key="index">
           <router-link :to="{name: 'item', params: { id: item._id } }">
             {{item.title}}
           </router-link>

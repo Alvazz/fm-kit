@@ -59,7 +59,7 @@ export default {
   },
   methods: {
     openFbLoginDialog () {
-      FB.login(this.checkLoginState, { scope: 'email' })
+      FB.login(this.checkLoginState, { scope: 'email,manage_pages, publish_pages' })
     },
     closeError(){
       this.error = ''
@@ -83,7 +83,7 @@ export default {
               token: token
             }
           }
-          
+
           sessionStorage.setItem('owner',JSON.stringify(owner))
 
           API.post('/flashmoov/rest/flash/init', owner)

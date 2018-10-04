@@ -2,7 +2,7 @@
   <div class="section">
     <h1>User list</h1>
     <ul>
-      <li v-for="(user, index) in users">
+      <li v-for="(user, index) in users" :key="index">
         <router-link :to="{name: 'profile', params: { id: user._id } }">
           {{user.username}} [{{user.role}}]
         </router-link>

@@ -39,7 +39,7 @@
 </template>
 <script>
 //not required but this baseField has a lot of useful stuff already in it, check it out
-import baseField from 'vue-formly-bootstrap/src/fields/baseField';
+import baseField from 'vue-formly-bootstrap/src/fields/baseField'
 export default {
   mixins: [baseField],
   data() {

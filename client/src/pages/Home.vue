@@ -4,49 +4,27 @@
     <div class="col-lg-9 col-md-9 col-sm-12">
       <div class="row">
         <div class="col-lg-12">
-          <div class="jumbotron">
-            <h1 class="display-4">Hello, world!</h1>
-            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-            <hr class="my-4">
-            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-            <p class="lead">
-              <a class="btn btn-primary btn-lg" href="#" role="button" @click="testApi">Learn more</a>
-            </p>
-          </div>
+          <InfoBox />
         </div>
         <div class="col-lg-12">
           <div class="row">
             <div class="col-lg-3">
-              second bar
+              <div class="card">
+                <div class="card-body">
+                  second bar
+                </div>
+              </div>
             </div>
             <div class="col-lg-9">
               <div class="row">
                 <div class="col-lg-12">
-                  <div class="card">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                  </div>
+                  <InfoBox />
                 </div>
                 <div class="col-lg-6">
-                  <div class="card">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                  </div>
+                  <InfoBox />
                 </div>
                 <div class="col-lg-6">
-                  <div class="card">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                  </div>
+                  <InfoBox />
                 </div>
               </div>
             </div>
@@ -55,7 +33,7 @@
       </div>
     </div>
     <div class="col-lg-3 col-md-3 col-sm-12">
-      sidebar
+      <InfoBox />
     </div>
   </section>
 </template>
@@ -63,10 +41,12 @@
 <script>
 import API from '@/api'
 import Swagger from '@/swagger-api'
+import InfoBox from '@/components/infoBox'
 
 export default {
   name: 'Home',
   components: {
+    InfoBox
   },
   data() {
     return {

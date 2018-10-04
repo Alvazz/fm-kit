@@ -44,9 +44,14 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Barlow+Semi+Condensed|Cormorant+Garamond|Dancing+Script|IM+Fell+English+SC|Josefin+Sans|Raleway');
+@import url('https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i|Oswald:200,300,400,500,600,700" rel="stylesheet');
 
 #app {
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-family: 'Oswald', sans-serif;
 }
 
 a {
