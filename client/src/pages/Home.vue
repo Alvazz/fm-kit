@@ -4,16 +4,12 @@
     <div class="col-lg-9 col-md-9 col-sm-12">
       <div class="row">
         <div class="col-lg-12">
-          <InfoBox />
+          <Jumbotron />
         </div>
         <div class="col-lg-12">
           <div class="row">
             <div class="col-lg-3">
-              <div class="card">
-                <div class="card-body">
-                  second bar
-                </div>
-              </div>
+              <Trands />
             </div>
             <div class="col-lg-9">
               <div class="row">
@@ -34,6 +30,8 @@
     </div>
     <div class="col-lg-3 col-md-3 col-sm-12">
       <InfoBox />
+      <AdvBanner />
+      <InfoBox />
     </div>
   </section>
 </template>
@@ -41,12 +39,18 @@
 <script>
 import API from '@/api'
 import Swagger from '@/swagger-api'
+import Jumbotron from '@/components/jumbotron'
 import InfoBox from '@/components/infoBox'
+import AdvBanner from '@/components/advBanner'
+import Trands from '@/components/trands'
 
 export default {
   name: 'Home',
   components: {
-    InfoBox
+    Jumbotron,
+    InfoBox,
+    AdvBanner,
+    Trands
   },
   data() {
     return {
