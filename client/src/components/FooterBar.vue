@@ -2,13 +2,49 @@
   <footer class="footer fixed-bottom_ pt-3 pb-2">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-3">
-          <p> Copyright © 2018. All rights reserved. </p>
+        <div class="col-9">
+          <div class="row">
+            <div class="col-3">
+              <p>@ 2018 Flashmoov</p>
+            </div>
+            <div class="col-2">
+              <ul class="footer--menu">
+                <li>technology</li>
+                <li>Ideas</li>
+              </ul>
+            </div>
+            <div class="col-2">
+              <ul class="footer--menu">
+                <li>Leadership</li>
+                <li>Video</li>
+              </ul>
+            </div>
+            <div class="col-2">
+              <ul class="footer--menu">
+                <li>News</li>
+                <li>Finance</li>
+              </ul>
+            </div>
+            <div class="col-2">
+              <ul class="footer--menu">
+                <li>Entertainment</li>
+              </ul>
+            </div>
+          </div>
         </div>
-
-        <div class="col-7">
-        </div>
-        <div class="scrollTop col-2">
+        <div class="col-3 ">
+          <div class="footer--social">
+            Follow us:
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-twitter"></i>
+          </div>
+          <div class="footer--subscribe">
+            <form class="form-inline">
+              <input type="text" class="form-control" placeholder="Jane Doe">
+              <button type="submit" class="btn">Subscribe</button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
@@ -30,6 +66,7 @@ export default {
 </script>
 <style scoped>
 .footer {
+  font-size: 0.8rem;
   height: 100px;
   color: #ffffff;
   background-color: rgba(	24, 27, 47, 1);
@@ -43,4 +80,27 @@ export default {
   color: #ffffff;
 }
 .scrollTop{text-align: right;}
+
+ul.footer--menu {
+  list-style: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  line-height: 25px;
+}
+input {
+  padding: 0 10px;
+  border-radius: 0;
+  font-size: 0.9rem;
+  height: 30px;
+}
+.footer--social, .footer--subscribe {
+  text-align: right;
+}
+.footer--social {
+  padding: 0 18px 10px 0;
+}
+.footer--social i {
+  padding: 0 5px;
+}
 </style>

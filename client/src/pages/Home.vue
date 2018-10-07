@@ -1,6 +1,5 @@
 <template>
   <section class="row content">
-
     <div class="col-lg-9 col-md-9 col-sm-12">
       <div class="row">
         <div class="col-lg-12">

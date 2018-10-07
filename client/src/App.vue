@@ -67,6 +67,22 @@ a:hover, .dropdown-menu a:hover {
   text-decoration: none;
 }
 
+input {
+  padding: 0 10px;
+  border-radius: 0;
+  font-size: 0.9rem;
+  height: 30px;
+}
+.btn {
+  border: 0px solid transparent;
+  border-radius: 0;
+  height: 30px;
+  font-size: 0.8rem;
+  background: red;
+  color:#fff;
+  text-transform: uppercase;
+}
+
 /*
 p {
   font-family: 'Cormorant Garamond', serif;

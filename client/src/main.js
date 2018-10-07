@@ -57,6 +57,9 @@ import mediaUpload from './components/fields/mediaUpload.vue'
 import steps from './components/fields/steps.vue'
 import file from './components/fields/file.vue'
 
+import VueVideoPlayer from 'vue-video-player'
+import 'video.js/dist/video-js.css'
+
 Vue.use(moment, 'en') // lang
 
 Vue.use(VueCarousel)
@@ -68,6 +71,8 @@ Vue.use(BootstrapVue)
 Vue.use(VueKindergarten, {
   child
 })
+
+Vue.use(VueVideoPlayer)
 
 Vue.component('VueElevator', VueElevator)
 
