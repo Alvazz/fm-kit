@@ -7,6 +7,9 @@
       <p class="adv-banner--content">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
       </p>
+      <div class="btn btn-white">
+        Read More
+      </div>
     </div>
   </div>
 </template>
@@ -30,5 +33,10 @@ export default {
 .adv-banner .adv-banner--content {
   font-size: 0.9rem;
   font-family: 'Lato', sans-serif;
+}
+.btn-white {
+  border: 1px solid #fff;
+  padding: 10px 30px;
+  height: inherit;
 }
 </style>

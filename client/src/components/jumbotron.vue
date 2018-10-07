@@ -6,10 +6,13 @@
           finace
         </div>
         <div class="jumbotron--text">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          THIS TIE BRAND IS BUCKING THE RETAIL APOCALYPSE WHITH A MASSIVE STORE EXPANSION
+        </div>
+        <div class="jumbotron--subtext">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
         </div>
         <div class="jumbotron--icon">
-          <i class="fa fa-500px"></i> 123 <i class="fa fa-500px"></i> 56 <i class="fa fa-500px"></i> 32
+          <i class="far fa-thumbs-up"></i> 123 <i class="far fa-comments"></i> 34
         </div>
       </div>
     </div>
@@ -31,6 +34,8 @@ export default {
   align-items: center;
   justify-content: center;
   background-size: cover;
+  border-radius: 0.25rem;
+  border: 0px solid transparent;
 }
 .jumbotron--tag {
   margin:20px 0;
@@ -41,11 +46,33 @@ export default {
   font-family: 'Lato', sans-serif;
   color: #fff;
   font-weight: bold;
-  font-size: 12px
+  font-size: 0.8rem
 }
-.jumbotron--text, .jumbotron--icon {
+.jumbotron--text {
+  text-shadow: 1px 1px #000;
+  padding: 0 130px;
+  font-size: 1.5rem;
+  color: #fff;
+  font-family: 'Lato', sans-serif;
+  text-transform: uppercase;
+}
+
+.jumbotron--subtext {
+  text-shadow: 1px 1px #000;
+  padding: 0 150px;
+  font-size: 1rem;
+  color: #fff;
+  font-family: 'Lato', sans-serif;
+}
+
+
+.jumbotron--icon {
   text-shadow: 1px 1px #000;
   padding: 10px;
+  position: absolute;
+  bottom: 30px;
+  right: 0;
+  left: 0;
   color: #fff;
 }
 </style>

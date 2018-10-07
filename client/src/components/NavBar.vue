@@ -155,6 +155,7 @@ export default {
   font-family: 'Josefin Sans', sans-serif;
   text-transform: uppercase;
   font-size: 0.8em;
+  font-weight: bold;
   color: rgba(	24, 27, 47 ,1);
 }
 .menu-item a {
