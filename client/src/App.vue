@@ -52,6 +52,7 @@ export default {
 body {
   font-family: 'Lato', sans-serif;
   font-family: 'Oswald', sans-serif;
+  background: rgba(194, 194, 194, 0.3);;
 }
 
 a {

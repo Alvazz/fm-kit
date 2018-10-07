@@ -146,6 +146,7 @@ export default {
   height: 10vh;
   color: #c2c2c2;
   border-bottom: 1px solid #c2c2c2;
+  background: #fff;
   //background-color: rgba(	24, 27, 47 ,1);
 }
 .navbar-brand{z-index: 1040;}

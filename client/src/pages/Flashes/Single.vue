@@ -42,7 +42,7 @@ export default {
         autoplay: false,
         muted: true,
         language: 'en',
-        fluid:true,
+        fluid: true,
         playbackRates: [0.7, 1.0, 1.5, 2.0],
         sources: [{
           type: "video/mp4",
@@ -185,6 +185,7 @@ export default {
   color: #fff;
   padding: 150px;
   bottom: 40px;
+  line-height: 30px;
 }
 
 .vjs-custom-skin > .video-js {

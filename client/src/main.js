@@ -57,6 +57,9 @@ import mediaUpload from './components/fields/mediaUpload.vue'
 import steps from './components/fields/steps.vue'
 import file from './components/fields/file.vue'
 
+import VuePlyr from 'vue-plyr';
+import 'vue-plyr/dist/vue-plyr.css';
+
 import VueVideoPlayer from 'vue-video-player'
 import 'video.js/dist/video-js.css'
 
@@ -72,6 +75,7 @@ Vue.use(VueKindergarten, {
   child
 })
 
+Vue.use(VuePlyr)
 Vue.use(VueVideoPlayer)
 
 Vue.component('VueElevator', VueElevator)
