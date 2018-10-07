@@ -111,5 +111,6 @@ export default {
 }
 .card {
   margin-bottom: 30px;
+  border: 0px solid transparent;
 }
 </style>
